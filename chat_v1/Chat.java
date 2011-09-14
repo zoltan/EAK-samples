@@ -63,7 +63,6 @@ public class Chat {
 				new Thread(
 					new ClientHandler(newClient, sockets)
 				).start();
-				System.out.println("vissza...");
 			}
 		} catch(IOException e) {
 			e.printStackTrace();
