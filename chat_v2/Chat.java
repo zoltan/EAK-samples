@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.net.Socket;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 class ClientHandler implements Runnable {
 	private final Socket socket;
@@ -19,6 +20,7 @@ class ClientHandler implements Runnable {
 	}
 
 	public void publishMessage(String message) {
+
 		for (Socket socket : allClients) {
 			if (socket == this.socket)
 				continue;
@@ -31,11 +33,21 @@ class ClientHandler implements Runnable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			try {
+			    Thread.sleep(2000);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 	}
 
 	public void run() {
-		allClients.add(socket);
+		
+		    allClients.add(socket);
+
+		
 		try {
 			BufferedReader br = new BufferedReader(
 						new InputStreamReader(
@@ -58,9 +70,9 @@ class ClientHandler implements Runnable {
 public class Chat {
 	public static void main(String[] args) {
 		final ExecutorService pool =
-			Executors.newFixedThreadPool(2);
-		final List<Socket> sockets = new LinkedList<Socket>();
-
+			Executors.newFixedThreadPool(16);
+		final CopyOnWriteArrayList<Socket> sockets = 
+		    new CopyOnWriteArrayList<Socket>();
 		try {
 			ServerSocket serverSock = new ServerSocket(5656);
 			while (true) {

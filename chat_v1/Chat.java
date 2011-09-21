@@ -42,6 +42,7 @@ class ClientHandler implements Runnable {
 				if ("exit".equals(line)) {
 					allClients.remove(socket);
 					socket.close();
+					return;
 				}
 				publishMessage(line);
 			}
