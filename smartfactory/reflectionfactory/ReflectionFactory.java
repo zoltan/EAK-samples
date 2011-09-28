@@ -19,10 +19,11 @@ abstract class InitializableImpl implements Initializable {
     }
 }
 
-@FactoryPreInit(initializer=InitializerImpl.class)
+//@FactoryPreInit(initializer=InitializerImpl.class)
 class Foo extends InitializableImpl {
 }
 
+@FactoryPreInit(initializer=InitializerImpl.class)
 class Bar extends InitializableImpl {
     public Bar() {
         X = 2;
@@ -30,8 +31,17 @@ class Bar extends InitializableImpl {
     }
 }
 
+
+
+
+
+
+
+
 class SmartFactory {
-    public static <T extends Initializable> T getInitializable(Class<T> clazz) {
+    public static <T extends Initializable> 
+		    T
+		    getInitializable(Class<T> clazz) {
         T instance = null;
 
         try {
@@ -43,10 +53,12 @@ class SmartFactory {
         }
 
         if(clazz.isAnnotationPresent(FactoryPreInit.class)) {
-            FactoryPreInit ann = clazz.getAnnotation(FactoryPreInit.class);
+            FactoryPreInit ann = 
+        	clazz.getAnnotation(FactoryPreInit.class);
 
             try {
-                Initializer init = ann.initializer().newInstance();
+                Initializer init 
+            	    = ann.initializer().newInstance();
                 init.init(instance);
             } catch(IllegalAccessException e) {
                 return null;
@@ -62,11 +74,17 @@ class SmartFactory {
 
 public class ReflectionFactory {
     public static void main(String[] args) {
-        Foo fooInstance = SmartFactory.getInitializable(Foo.class);
+        Foo fooInstance =
+    	    SmartFactory.getInitializable(Foo.class);
         System.out.println("foo's product: " + fooInstance.getProduct());
 
-        Bar barInstance = SmartFactory.getInitializable(Bar.class);
+        Bar barInstance =
+    	    SmartFactory.getInitializable(Bar.class);
         System.out.println("bar's product: " + barInstance.getProduct());
     }
 }
+
+
+
+
 

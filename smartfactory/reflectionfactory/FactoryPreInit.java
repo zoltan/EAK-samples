@@ -5,6 +5,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FactoryPreInit {
-    Class<? extends Initializer> initializer() default NullInitializerImpl.class;
+    Class<? extends Initializer> 
+	initializer() default NullInitializerImpl.class;
 }
 

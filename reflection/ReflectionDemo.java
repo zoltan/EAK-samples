@@ -37,11 +37,16 @@ public class ReflectionDemo {
     public static void main(String[] args) {
         new X().test();
         
-        System.out.println("canonical name: " + X.class.getCanonicalName());
-        System.out.println("number of ctors: " + X.class.getConstructors().length);
-        System.out.println("number of methods: " + X.class.getMethods().length);
+        System.out.println("canonical name: " 
+    		+ X.class.getCanonicalName());
+        System.out.println("number of ctors: " + 
+    	    X.class.getConstructors().length);
+        System.out.println("number of methods: " + 
+    	    X.class.getMethods().length);
         for(Method m : X.class.getMethods()) {
-            System.out.println("\tmethod name: " + m.getName() + " (" + getTypeList(m.getParameterTypes()) + ")");
+            System.out.println("\tmethod name: " + 
+            m.getName() + 
+            " (" + getTypeList(m.getParameterTypes()) + ")");
         }
     }
 }
