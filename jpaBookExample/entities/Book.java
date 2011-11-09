@@ -32,9 +32,12 @@ public class Book implements Serializable {
         this.id = id;
     }
 
+
     public List<Author> getAuthors() {
         return authors;
     }
+
+
 
     public void setAuthors(List<Author> authors) {
         this.authors = authors;

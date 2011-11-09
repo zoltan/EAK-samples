@@ -19,11 +19,11 @@ abstract class InitializableImpl implements Initializable {
     }
 }
 
-//@FactoryPreInit(initializer=InitializerImpl.class)
+@FactoryPreInit(initializer=InitializerImpl.class)
 class Foo extends InitializableImpl {
 }
 
-@FactoryPreInit(initializer=InitializerImpl.class)
+//@FactoryPreInit(initializer=InitializerImpl.class)
 class Bar extends InitializableImpl {
     public Bar() {
         X = 2;
@@ -41,7 +41,7 @@ class Bar extends InitializableImpl {
 class SmartFactory {
     public static <T extends Initializable> 
 		    T
-		    getInitializable(Class<T> clazz) {
+		    getInitializable(Class<T> clazz) { 
         T instance = null;
 
         try {
