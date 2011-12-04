@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://montebruno:8080/APIServiceService/APIService?wsdl" uri="wsdl/montebruno_8080/APIServiceService/APIService.wsdl"/>
+    <system systemId="http://montebruno:8080/APIServiceService/APIService?xsd=1" uri="wsdl/montebruno_8080/APIServiceService/APIService.xsd_1.xsd"/>
+</catalog>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.1.1-b09 (branches/2.1-6834; 2011-07-16T17:14:48+0000) JAXWS-RI/2.2.5-promoted-b04 JAXWS/2.2. --><xs:schema xmlns:tns="http://xx/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://xx/">
+
+<xs:element name="buy" type="tns:buy"/>
+
+<xs:element name="buyResponse" type="tns:buyResponse"/>
+
+<xs:element name="clear" type="tns:clear"/>
+
+<xs:element name="clearResponse" type="tns:clearResponse"/>
+
+<xs:element name="getCars" type="tns:getCars"/>
+
+<xs:element name="getCarsResponse" type="tns:getCarsResponse"/>
+
+<xs:element name="sell" type="tns:sell"/>
+
+<xs:element name="sellResponse" type="tns:sellResponse"/>
+
+<xs:complexType name="clear">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="clearResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="sell">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buy">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buyResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCars">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getCarsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:car" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="car">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
